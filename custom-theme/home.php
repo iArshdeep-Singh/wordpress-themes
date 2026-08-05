@@ -14,4 +14,15 @@
         <?php endwhile; ?>
     <?php endif; ?>
 </main>
+
+<?php
+get_sidebar();
+
+if (is_active_sidebar('main-sidebar')) {
+    echo "<h1 style='color:green;'>Active</h1>";
+}
+
+?>
+
+
 <?php get_footer(); ?>

@@ -5,6 +5,7 @@ GIT VERSION CHECK
 
 git --version 
 
+
 ----------------------------------------------------
 GIT CONFIGURATION
 
@@ -30,6 +31,7 @@ git remote add origin <repository-url>  [add a remote]
 git remote remove <remote-name> [remote a remote]
 
 git remote remove origin    [to remove origin]
+
 
 ----------------------------------------------------
 CHECK STATUS
@@ -72,16 +74,32 @@ git revert <commit-hash>    [creates a new commit that safely reverses a specifi
 
 git reflog  [recover a reset or deleted commit]
 
+
+----------------------------------------------------
+PUSH
+
+git push origin main    [upload files/folders to remote]
+
+git push --force origin main    [overwriting the remote branch's history]
+
+git push -u origin main [push main and set origin/main as its upstream.]
+
 ----------------------------------------------------
 BRANCHES
 
-git branch  [list branches]
+git branch  [list local branches]
+
+git branch -r   [list remote branches]
+
+git branch -a   [list all branches (local + remote)]
 
 git branch <branch-name>    [create a branch]
 
 git switch <branch-name>    [switch branch]
 
 git switch -C <branch-name> [create and switch branch]
+
+git branch -M main  [rename the current branch]
 
 git branch -d <branch-name> [delete branch]
 

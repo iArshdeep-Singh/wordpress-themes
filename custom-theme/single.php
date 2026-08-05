@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <main>
+    <h1>single.php</h1>
 
     <?php if (have_posts()): ?>
 

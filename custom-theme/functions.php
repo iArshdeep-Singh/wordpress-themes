@@ -1,5 +1,6 @@
 <?php
 
+require get_template_directory() . '/includes/dynamic_sidebar.php';
 function on_setup()
 {
     add_theme_support('title-tag');
@@ -34,3 +35,4 @@ function style_and_script()
 
 add_action('wp_enqueue_scripts', 'style_and_script');
 add_action('after_setup_theme', 'on_setup');
+add_action('widgets_init', 'custom_widget');
