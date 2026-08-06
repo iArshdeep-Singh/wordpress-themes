@@ -16,10 +16,11 @@
 </main>
 
 <?php
-get_sidebar();
+// get_sidebar();
 
-if (is_active_sidebar('main-sidebar')) {
-    echo "<h1 style='color:green;'>Active</h1>";
+if (is_active_sidebar('weather-sidebar')) {
+
+    dynamic_sidebar('weather-sidebar');
 }
 
 ?>

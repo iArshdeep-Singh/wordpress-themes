@@ -1,6 +1,6 @@
 <?php
 
-function custom_widget()
+function custom_sidebar()
 {
     register_sidebar([
         'name' => 'Main Sidebar',

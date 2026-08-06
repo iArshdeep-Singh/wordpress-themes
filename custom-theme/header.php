@@ -12,7 +12,12 @@
 <body <?php body_class(); ?>>
 
     <nav>
-        <?php wp_nav_menu(['theme_location' => 'primary']); ?>
+        <?php wp_nav_menu([
+            'theme_location' => 'primary',
+            'container' => false,
+            'menu_class' => 'main-menu',
+            'fallback_cb' => false
+        ]); ?>
     </nav>
 
     <header>
