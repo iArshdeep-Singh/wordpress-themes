@@ -1,0 +1,95 @@
+.weather-card {
+  display: inline-block;
+  color: black;
+  border: 1px solid lightgray;
+  padding: 10px;
+  background-color: white;
+}
+
+.weather-card form {
+  display: flex;
+  align-items: end;
+  padding: 0;
+}
+.weather-card form input {
+  font-size: 0.9vw;
+  border: none;
+  padding-bottom: 0.125vw;
+  border-bottom: 1px solid grey;
+}
+
+.weather-card form input:focus {
+  outline: none;
+}
+
+.weather-card form button {
+  font-size: 1vw;
+  border: none;
+  background-color: white;
+  border-bottom: 1px solid grey;
+  padding-left: 0.5;
+  padding-right: 0;
+  cursor: pointer;
+}
+
+.weather-details #main {
+  display: flex;
+  align-items: center;
+}
+
+.weather-details #time-location p:nth-child(1) {
+  color: royalblue;
+  font-size: 1vw;
+  font-weight: 550;
+  margin-bottom: 0.5vw;
+}
+
+.weather-details #time-location p:nth-child(2) {
+  font-size: 0.75vw;
+  margin-bottom: 0;
+  margin-top: 0.25vw;
+  color: gray;
+}
+
+.weather-details #time-location p:nth-child(3) {
+  /* color: royalblue; */
+  font-size: 1vw;
+  margin-top: 0.125vw;
+  margin-bottom: 0.5vw;
+  color: black;
+}
+
+.weather-details #main div span:first-child {
+  color: royalblue;
+  font-size: 1.7vw;
+  font-weight: 550;
+}
+
+.weather-details #main span:nth-child(3) {
+  font-size: 1vw;
+  /* color: ; */
+}
+
+.weather-details #main div span:last-child {
+  font-size: 1vw;
+  color: steelblue;
+  font-size: 0.9vw;
+}
+
+.weather-details #other p:first-child {
+  color: grey;
+  margin-top: 0.5vw;
+  margin-bottom: 0.25vw;
+  font-size: 1vw;
+}
+
+.weather-details #other p:last-child {
+  font-size: 0.75vw;
+  margin-bottom: 0;
+  margin-top: 0.5vw;
+}
+
+.weather-details #other p:last-child span {
+  font-size: 0.9vw;
+  color: royalblue;
+}

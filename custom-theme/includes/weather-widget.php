@@ -25,28 +25,7 @@ class Weather_widget extends WP_Widget
 
         echo "<h3 style='color:green;'>Weather Forecast</h3>";
 
-        $city = "Ludhiana";
-
-        $key = $instance['key'];
-        $url = "http://api.openweathermap.org/data/2.5/weather?q=" . urlencode($city) . "&appid=" . $key . "&units=metric";
-
-        $response = wp_remote_request($url, [
-            'method' => 'GET',
-            'headers' => [
-                'Content-Type' => 'application/json'
-            ]
-        ]);
-
-        if (is_wp_error($response)) {
-            echo "<h2 style='color:red;'>" . $response->get_error_message() . "</h2>";
-        } else {
-            $json_data = wp_remote_retrieve_body($response);
-            $data = json_decode($json_data, true);
-
-            echo "<pre>";
-            print_r($data);
-            echo "</pre>";
-        }
+        require get_template_directory() . '/includes/weather-ui.php';
 
         echo $args['after_widget'];     // after widget in sidebar - widget ਨੂੰ ਬੰਦ ਕਰਦਾ ਹੈ (ਜਿਵੇਂ </div>) (These come from register_sidebar())
     }
