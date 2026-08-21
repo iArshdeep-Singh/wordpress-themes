@@ -1,9 +1,14 @@
+:root {
+  --blue-font: #0072b8;
+  --bg: #0b1f3f;
+}
+
 .weather-card {
   display: inline-block;
-  color: black;
-  border: 1px solid lightgray;
+  /* border: 1px solid var(--blue-font); */
   padding: 10px;
-  background-color: white;
+  background-color: var(--bg);
+  margin: 1vw 0;
 }
 
 .weather-card form {
@@ -11,11 +16,14 @@
   align-items: end;
   padding: 0;
 }
+
 .weather-card form input {
   font-size: 0.9vw;
   border: none;
   padding-bottom: 0.125vw;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--blue-font);
+  background: transparent;
+  color: lightblue;
 }
 
 .weather-card form input:focus {
@@ -25,11 +33,12 @@
 .weather-card form button {
   font-size: 1vw;
   border: none;
-  background-color: white;
-  border-bottom: 1px solid grey;
+  background: transparent;
+  border-bottom: 1px solid var(--blue-font);
   padding-left: 0.5;
   padding-right: 0;
   cursor: pointer;
+  color: var(--blue-font);
 }
 
 .weather-details #main {
@@ -38,7 +47,7 @@
 }
 
 .weather-details #time-location p:nth-child(1) {
-  color: royalblue;
+  color: white;
   font-size: 1vw;
   font-weight: 550;
   margin-bottom: 0.5vw;
@@ -48,36 +57,40 @@
   font-size: 0.75vw;
   margin-bottom: 0;
   margin-top: 0.25vw;
-  color: gray;
+  color: lightblue;
 }
 
 .weather-details #time-location p:nth-child(3) {
-  /* color: royalblue; */
+  /* color: var(--blue-font); */
   font-size: 1vw;
   margin-top: 0.125vw;
   margin-bottom: 0.5vw;
-  color: black;
+  color: white;
 }
 
+/* .weather-details img {
+  filter: brightness(0) invert(1);
+} */
+
 .weather-details #main div span:first-child {
-  color: royalblue;
+  color: whitesmoke;
   font-size: 1.7vw;
   font-weight: 550;
 }
 
 .weather-details #main span:nth-child(3) {
   font-size: 1vw;
-  /* color: ; */
+  color: lightblue;
 }
 
 .weather-details #main div span:last-child {
   font-size: 1vw;
-  color: steelblue;
+  color: white;
   font-size: 0.9vw;
 }
 
 .weather-details #other p:first-child {
-  color: grey;
+  color: white;
   margin-top: 0.5vw;
   margin-bottom: 0.25vw;
   font-size: 1vw;
@@ -87,9 +100,10 @@
   font-size: 0.75vw;
   margin-bottom: 0;
   margin-top: 0.5vw;
+  color: white;
 }
 
 .weather-details #other p:last-child span {
   font-size: 0.9vw;
-  color: royalblue;
+  color: lightblue;
 }

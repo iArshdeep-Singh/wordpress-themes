@@ -22,9 +22,6 @@ class Weather_widget extends WP_Widget
     {
         echo $args['before_widget'];    // before widget in sidebar - widget ਸ਼ੁਰੂ ਕਰਦਾ ਹੈ (ਜਿਵੇਂ <div class="widget">)
 
-
-        echo "<h3 style='color:green;'>Weather Forecast</h3>";
-
         require get_template_directory() . '/includes/weather-ui.php';
 
         echo $args['after_widget'];     // after widget in sidebar - widget ਨੂੰ ਬੰਦ ਕਰਦਾ ਹੈ (ਜਿਵੇਂ </div>) (These come from register_sidebar())
