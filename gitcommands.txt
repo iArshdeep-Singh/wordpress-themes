@@ -109,10 +109,17 @@ git branch -D <branch-name> [force delete]
 ----------------------------------------------------
 REMOVE FILES/FOLDERS
 
-git rm <file-name>  [removes the file locally and stages its deletion from the git repository.]
+git rm <file-name>  [removes the file locally and stages its deletion from the git repository]
 
-git rm --cached <file-name> [stops tracking the file while keeping the local copy unchanged.]
+git rm --cached <file-name> [stops tracking the file while keeping the local copy unchanged]
 
-git rm -r <folder>  [recursively removes the folder locally and stages its deletion from git.]
+git rm -r <folder>  [recursively removes the folder locally and stages its deletion from git]
 
 git rm -r --cached <folder> [stops tracking the folder while keeping all local files and subfolders]
+
+
+-----------------------------------------------------
+FETCH, PULL & MERGE
+git fetch origin main   [fetch downloads the latest remote changes without merging them into local branch.]
+git pull origin main    [fetches and merges main into your current branch.]
+git pull origin main --allow-unrelated-histories    [allows Git to merge your local and remote branches even though they have no common commit history]
