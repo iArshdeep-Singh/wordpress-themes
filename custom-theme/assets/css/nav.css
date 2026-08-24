@@ -1,0 +1,19 @@
+.main-menu {
+  display: flex;
+  list-style: none;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid blue;
+}
+
+.main-menu li {
+  position: relative;
+  margin-right: 20px;
+  font-size: 1.125vw;
+  font-weight: 550;
+  /* border-right: 1px solid black; */
+  padding-right: 25px;
+}
+
+.main-menu li a {
+  text-decoration: none;
+}
