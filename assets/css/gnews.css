@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  margin: 0;
+  padding: 48px 24px;
+  background: #f1efe8;
+  font-family: "Georgia", "Times New Roman", serif;
+} */
+
+.container {
+  max-width: 75vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 28px;
+}
+
+.news-card {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e4e1d6;
+  flex: 1 1 280px;
+  max-width: 360px;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(20, 18, 12, 0.12);
+  border-color: #d6522e;
+}
+
+.news-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.top-bottom {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #d3d1c7;
+}
+
+.top-bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .top-bottom img {
+  transform: scale(1.06);
+}
+
+.bottom-content {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bottom-content h2 {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #1a1712;
+  letter-spacing: -0.2px;
+}
+
+.bottom-content p {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5f5e5a;
+}
+
+.bottom-content span {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #d6522e;
+}
+
+
+.news-card.fill-row {
+  flex-grow: 5;
+  max-width: 100%;
+}

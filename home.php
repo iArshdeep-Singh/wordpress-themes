@@ -17,6 +17,7 @@
 
 <?php
 // get_sidebar();
+// echo do_shortcode('[news_content]');
 
 if (is_active_sidebar('weather-sidebar')) {
 

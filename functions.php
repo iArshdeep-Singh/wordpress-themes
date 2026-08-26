@@ -31,14 +31,14 @@ function style_and_script()
     );
 
     wp_enqueue_script(
-        'weather-widget',
-        get_template_directory_uri() . '/assets/js/weather-widget.js',
+        'gnews',
+        get_template_directory_uri() . '/assets/js/gnews.js',
         ['jquery'],
         '1.0',
         true
     );
     wp_localize_script(
-        'weather-widget',
+        'gnews',
         'ajax',
         [
             'endpoint' => admin_url('admin-ajax.php')
@@ -54,6 +54,15 @@ function get_news()
 require get_template_directory() . '/includes/custom-sidebar.php';
 require get_template_directory() . '/includes/weather-widget.php';
 
+function news_content($atts)
+{
+    ob_start();
+    $atts = shortcode_atts(['category' => "general"], $atts);
+
+    require get_template_directory() . '/includes/gnews-ui.php';
+
+    return ob_get_clean();
+}
 
 add_action('wp_enqueue_scripts', 'style_and_script');
 add_action('after_setup_theme', 'on_setup');
@@ -61,3 +70,4 @@ add_action('widgets_init', 'custom_sidebar');
 add_action('widgets_init', 'register_weather_widget');
 add_action('wp_ajax_get_news', 'get_news');
 add_action('wp_ajax_nopriv_get_news', 'get_news');
+add_shortcode('news_content', 'news_content');
