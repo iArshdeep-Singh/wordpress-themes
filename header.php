@@ -11,15 +11,35 @@
 
 <body <?php body_class(); ?>>
 
-    <nav>
+    <nav class="site-navigation">
+
+        <a href="<?= esc_url(home_url('/')); ?>" class="home-link">
+            Home
+        </a>
+
         <?php wp_nav_menu([
             'theme_location' => 'primary',
             'container' => false,
             'menu_class' => 'main-menu',
             'fallback_cb' => false
         ]); ?>
+
+        <form class="search-form" method="get" action="<?= esc_url(home_url('/')); ?>">
+            <input type="search" name="s" placeholder="Search News" />
+            <button type="submit">Search</button>
+        </form>
+
+        <a href="<?= esc_url(wp_login_url()); ?>" class="account-link">
+            <span class="account-icon">👤</span>
+            Account
+        </a>
+
     </nav>
 
+
+
     <header>
-        <!-- <h1><?php bloginfo('name'); ?></h1> -->
+        <h1 style="color: #0b1f3f;"><?php if (!empty(get_search_query())) {
+            echo "Results for \"" . get_search_query() . "\"";
+        } ?></h1>
     </header>

@@ -1,14 +1,12 @@
 <?php get_header(); ?>
 
-<main>
-    <h1>single.php</h1>
+<?php if (have_posts()): ?>
 
-    <?php if (have_posts()): ?>
+    <?php while (have_posts()):
+        the_post(); ?>
 
-        <?php while (have_posts()):
-            the_post(); ?>
-
-            <h1><?php the_title(); ?></h1>
+        <h1 style="color: #0b1f3f;"><?php the_title(); ?></h1>
+        <main>
 
             <?php if (has_post_thumbnail()): ?>
                 <?php the_post_thumbnail('medium'); ?>
@@ -18,7 +16,11 @@
 
         <?php endwhile; ?>
 
-    <?php endif; ?>
+    <?php endif;
+
+get_sidebar();
+
+?>
 </main>
 
 <?php get_footer(); ?>

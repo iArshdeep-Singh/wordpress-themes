@@ -9,6 +9,7 @@ $weather_data = [];
 if (empty($_GET['city'])) {
     $res = wp_remote_request('https://ipapi.co/json/', [
         'method' => 'GET',
+        // 'timeout' => 10 // default timeout is 5 seconds
     ]);
 
     if (is_wp_error($res)) {
@@ -64,18 +65,20 @@ if (is_wp_error($response)) {
     <div class="weather-details">
         <div id="time-location">
             <p>
-                <span style="color: red; font-size: 0.75vw"><?php echo isset($message) && !empty($message) ? $message : ''; ?></span>
+                <span
+                    style="color: red; font-size: 0.75vw"><?php echo isset($message) && !empty($message) ? $message : ''; ?></span>
                 <?= isset($data['name']) ? $data['name'] : ''; ?>,
                 <?= isset($data['sys']['country']) ? $data['sys']['country'] : ''; ?>
             </p>
             <p>Current weather</p>
-            
+
             <p>
                 <?= isset($weather_data['local_time']) && $weather_data['local_time'] ? $weather_data['local_time'] : ''; ?>
             </p>
         </div>
         <div id="main">
-            <img src=<?= isset($img) && $img ? $img : ''; ?> alt="<?= isset($data['weather'][0]['main']) ? $data['weather'][0]['main'] : ''; ?>">
+            <img src=<?= isset($img) && $img ? $img : ''; ?>
+                alt="<?= isset($data['weather'][0]['main']) ? $data['weather'][0]['main'] : ''; ?>">
             <div>
                 <span><?= isset($data['main']['temp']) ? $data['main']['temp'] : ''; ?>&deg;C</span><br>
                 <span><?= isset($data['weather'][0]['main']) ? ucfirst($data['weather'][0]['main']) : ''; ?></span><br>

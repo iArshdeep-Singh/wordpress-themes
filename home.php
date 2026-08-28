@@ -17,12 +17,12 @@
 
 <?php
 // get_sidebar();
-// echo do_shortcode('[news_content]');
+// // echo do_shortcode('[news_content]');
 
-if (is_active_sidebar('weather-sidebar')) {
+// if (is_active_sidebar('weather-sidebar')) {
 
-    dynamic_sidebar('weather-sidebar');
-}
+//     dynamic_sidebar('weather-sidebar');
+// }
 
 ?>
 

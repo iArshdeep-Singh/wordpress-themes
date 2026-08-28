@@ -25,14 +25,15 @@ $url = '';
 if ($data['endpoint'] == 'top-headlines') {
     $url = "https://gnews.io/api/v4/top-headlines?category=" . $data['category'] . "&lang=" . $data['lang'] . "&page=" . $data['page'] . "&country=" . $data['country'] . "&max=8&apikey=" . $api_keys[$random];
 } else {
-    $url = "https://gnews.io/api/v4/search?q=Punjab&apikey=" . $api_key;
+    $url = "https://gnews.io/api/v4/search?q=" . $data['query'] . "&page=" . $data['page'] . "&apikey=" . $api_keys[$random];
 }
 
 $response = wp_remote_request($url, [
     'method' => 'GET',
     'headers' => [
         'content-type' => 'application/json'
-    ]
+    ],
+    // 'timeout' => 10 // default timeout is 5 seconds
 ]);
 
 

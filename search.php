@@ -1,19 +1,17 @@
 <?php get_header(); ?>
 
 <main>
-    <h1>search.php is the WordPress template used to display the search results page.
-        When a user searches something on your website, WordPress loads search.php (if it exists) to show the matching
-        posts.</h1>
+    <?php
 
-    <pre>
-        Example:
-        
-            https://example.com/?s=wordpress
+    $query = get_search_query();
 
-            or
+    echo do_shortcode('[news_content endpoint="search" q="' . $query . '"]');
 
-            https://example.com/search/wordpress/
-        </pre>
+    // if (is_active_sidebar('weather-sidebar')) {
+    
+    //     dynamic_sidebar('weather-sidebar');
+    // }
+    ?>
 </main>
 
 <?php get_footer(); ?>

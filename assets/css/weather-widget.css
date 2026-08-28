@@ -8,6 +8,7 @@
   /* border: 1px solid var(--blue-font); */
   padding: 10px;
   background-color: var(--bg);
+  min-width: 16vw;
 }
 
 .weather-card form {

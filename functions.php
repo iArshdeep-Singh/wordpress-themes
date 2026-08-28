@@ -57,7 +57,7 @@ require get_template_directory() . '/includes/weather-widget.php';
 function news_content($atts)
 {
     ob_start();
-    $atts = shortcode_atts(['category' => "general"], $atts);
+    $atts = shortcode_atts(['category' => "general", 'language' => "en", 'endpoint' => 'top-headlines'], $atts);
 
     require get_template_directory() . '/includes/gnews-ui.php';
 

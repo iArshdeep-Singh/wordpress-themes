@@ -1,21 +1,33 @@
-<?php get_header(); ?>
-
 <aside>
-    <pre>
-        sidebar.php is the template file used to display the sidebar of a WordPress website.
 
-        A sidebar usually contains:
+    <?php
+    if (is_active_sidebar('weather-sidebar')) {
+        dynamic_sidebar('weather-sidebar');
+    }
+    ?>
+    <div id="language-based-posts">
+        <h3>News in</h3>
 
-            Search form
-            Recent Posts
-            Categories
-            Archives
-            Tags
-            Custom widgets
-            Advertisements
+        <ul>
+            <?php
+            $posts = get_posts([
+                'post_type' => 'post',
+                'posts_per_page' => -1,
+                'post_status' => 'publish',
+                'orderby' => 'date',
+                'order' => 'ASC',
+            ]);
 
-        Instead of writing the sidebar code on every page, WordPress keeps it in sidebar.php so it can be reused.
-    </pre>
+            foreach ($posts as $post):
+                setup_postdata($post);
+                ?>
+                <li><a href="<?= esc_url(the_permalink()); ?>"><?= the_title(); ?></a></li>
+
+                <?php
+            endforeach;
+            wp_reset_postdata();
+            ?>
+
+        </ul>
+    </div>
 </aside>
-
-<?php get_footer(); ?>
