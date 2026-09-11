@@ -102,7 +102,7 @@
                 div_bottom.append(
                     $('<h2>').text(title),
                     $('<p>').text(description),
-                    $('<span>').text(article.publishedAt)
+                    $('<span>').text(article?.source?.name)
                 )
 
                 div_bottom.appendTo(link)
@@ -125,7 +125,7 @@
             $.ajax({
                 url: ajax.endpoint + "?action=get_news",
                 type: 'POST',
-                data: JSON.stringify({ endpoint: endpoint, page: page, lang: lang, query: encodeURIComponent(query), category: category, country: country }),
+                data: JSON.stringify({ endpoint: endpoint, page: page, lang: lang, query: encodeURIComponent(query).trim(), category: category, country: country }),
                 success: function (res, status) {
 
                     let parsedData = JSON.parse(res.data)

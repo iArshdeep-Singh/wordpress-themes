@@ -10,6 +10,7 @@ Version: 1.0
 @import url("assets/css/weather-widget.css");
 @import url("assets/css/gnews.css");
 @import url("assets/css/sidebar.css");
+@import url("assets/css/signup.css");
 
 body {
   padding: 0;

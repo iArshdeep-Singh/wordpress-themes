@@ -18,15 +18,17 @@
   position: relative;
   display: inline-block;
   flex-shrink: 0;
-  margin-right: 2vw;
+  margin-right: 1vw;
   padding-bottom: 8px;
-
   color: #0b1f3f;
   text-decoration: none;
   white-space: nowrap;
-
   font-size: clamp(14px, 1.125vw, 18px);
   font-weight: 550;
+}
+
+.site-navigation > .home-link img {
+  width: 2.75vw;
 }
 
 .site-navigation > .home-link:hover {
