@@ -16,7 +16,8 @@
 
         <?php endwhile; ?>
 
-    <?php endif;
+    <?php
+endif;
 
 get_sidebar();
 

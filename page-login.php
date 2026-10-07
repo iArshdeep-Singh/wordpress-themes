@@ -39,8 +39,7 @@ if (is_user_logged_in()) {
 
         <p id="message"></p>
         <p>Don't have an account? <a href="<?= esc_url(home_url('/signup/')); ?>">Signup</a></p>
-        <p>Forgot password or username? <a href="<?= esc_url(home_url('/reset-password-or-find-username/')); ?>">Click
-                here</a></p>
+        <p>Forgot password or username? <a href="<?= esc_url(home_url('/forget/')); ?>">Click here</a></p>
     </form>
 
 </div>

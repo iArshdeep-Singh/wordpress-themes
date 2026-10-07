@@ -7,6 +7,10 @@
         data-news-lang=<?= $atts['language']; ?>></div>
 
     <div class="load-more">
-        <center><button>Load More</button></center>
+
+        <?=
+            is_user_logged_in() ? "<center><button>Load More</button></center>" : "<center style='margin-top: 1vw;'><a href=" . home_url('/login/') . ">" . "Please Sign In To Load More</a></center>";
+        ?>
+
     </div>
 </div>

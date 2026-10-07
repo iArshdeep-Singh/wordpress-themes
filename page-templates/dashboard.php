@@ -1,7 +1,8 @@
 <?php
+
 /*
-Template Name: Dashboard 
-*/
+ * Template Name: Dashboard
+ */
 
 // If you write a template name, you have to select that template from the "Template" dropdown when creating a page in WordPress.
 // If you don't specify a template name and instead create a file like `page-nameofpage.php`, you don't need to select a template from the "Template" dropdown. When you create a WordPress page with the `nameofpage` slug, WordPress will automatically use the `page-nameofpage.php` template for that page. (The correct format for a page-specific template is `page-nameofpage.php`. It should not be `nameofpage-page.php` or any other format.)
@@ -9,7 +10,6 @@ Template Name: Dashboard
 get_header();
 
 if (!is_user_logged_in()) {
-
     wp_redirect(
         home_url('/login/')
     );
@@ -17,6 +17,9 @@ if (!is_user_logged_in()) {
 }
 
 $current_user = wp_get_current_user();
+$id = $current_user->ID;
+
+$name = get_user_meta($id, 'name', true);
 
 $isEmailVerified = get_user_meta($current_user->ID, 'is_email_verified', true);
 
@@ -27,7 +30,10 @@ $isEmailVerified = get_user_meta($current_user->ID, 'is_email_verified', true);
 <div id="dashboard">
     <form>
         <label for="name">Name</label>
-        <div class="current_user" id="name"><?= $current_user->display_name; ?></div>
+        <div class="current_user" id="name"><?= $name; ?></div>
+        
+        <label for="username">Username</label>
+        <div class="current_user" id="username"><?= $current_user->user_login; ?></div>
 
         <label for="email">Email</label>
         <div class="current_user" id="email"><?= $current_user->user_email; ?></div>
@@ -53,9 +59,11 @@ $isEmailVerified = get_user_meta($current_user->ID, 'is_email_verified', true);
     </form>
 </div>
 
-
+<!-- <center> -->
 <a href="<?= esc_url(wp_logout_url(home_url('/'))); ?>"><button>Logout</button></a>
-<a href="<?= esc_url(home_url('/edit-profile/')); ?>"><button>Edit Profile</button></a>
+<a href="<?= esc_url(home_url('/edit-profile?id=' . $id)); ?>"><button>Edit Profile</button></a>
+<!-- </center> -->
 
 <?php
-get_footer(); ?>
+get_footer();
+?>

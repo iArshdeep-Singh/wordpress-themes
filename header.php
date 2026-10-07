@@ -10,7 +10,7 @@
 
 <body <?php body_class(); ?>>
 
-    <nav class="site-navigation" style=<?= is_page(['signup', 'login', 'verify-email', 'dashboard', 'forget']) ? "display:none;" : "display:flex;"; ?>>
+    <nav class="site-navigation" style=<?= is_page(['signup', 'login', 'verify-email', 'dashboard', 'forget', 'reset-password', 'edit-profile', 'delete']) ? 'display:none;' : 'display:flex;'; ?>>
         <a href="<?= esc_url(home_url('/')); ?>" class="home-link">
             <img src="<?= esc_url(get_template_directory_uri() . '/assets/home.png'); ?>" alt="Home">
         </a>
@@ -23,14 +23,14 @@
         ]); ?>
 
         <form class="search-form" method="get" action="<?= esc_url(home_url('/')); ?>">
-            <input type="search" name="s" value="<?= !empty(get_search_query()) ? get_search_query() : ""; ?>"
+            <input type="search" name="s" value="<?= !empty(get_search_query()) ? get_search_query() : ''; ?>"
                 placeholder="Search News" />
             <button type="submit">Search</button>
         </form>
 
-        <a href="<?= esc_url(home_url("/dashboard/")); ?>" class="account-link">
+        <a href="<?= esc_url(home_url('/dashboard/')); ?>" class="account-link">
             <span class="account-icon">👤</span>
-            Account
+            <?= is_user_logged_in() ? 'Account' : 'Sign In'; ?>
         </a>
 
     </nav>
@@ -39,6 +39,6 @@
 
     <header>
         <h1 style="color: #0b1f3f;"><?php if (!empty(get_search_query())) {
-            echo "Results for \"" . get_search_query() . "\"";
-        } ?></h1>
+    echo 'Results for "' . get_search_query() . '"';
+} ?></h1>
     </header>

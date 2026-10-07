@@ -13,16 +13,17 @@ if (is_user_logged_in()) {
     wp_redirect(
         home_url('/')
     );
+    
     exit;
 }
 
 
 ?>
-
+</div>
 <div id="forget-password-or-username">
 
     <form>
-        <h1>Find your username and rest password</h1>
+        <h1>Find your username or reset password</h1>
 
         <label for="email">Enter your registered email</label><br />
         <input type="text" id="email" name="email" />

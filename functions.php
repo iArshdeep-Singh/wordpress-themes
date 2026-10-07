@@ -22,8 +22,7 @@ function style_and_script()
 
     wp_enqueue_script('jquery');
 
-    if (is_page(['signup', 'login', 'dashboard', 'verify-email', 'forget'])) {
-
+    if (is_page(['signup', 'login', 'dashboard', 'verify-email', 'forget', 'reset-password', 'edit-profile', 'delete'])) {
         wp_enqueue_script(
             'script',
             get_template_directory_uri() . '/assets/js/main.js',
@@ -33,9 +32,7 @@ function style_and_script()
         );
     }
 
-
-    if (!is_page(['signup', 'login', 'dashboard', 'verify-email', 'forget'])) {
-
+    if (!is_page(['signup', 'login', 'dashboard', 'verify-email', 'forget', 'reset-password', 'edit-profile', 'delete'])) {
         wp_enqueue_script(
             'gnews',
             get_template_directory_uri() . '/assets/js/gnews.js',
@@ -73,17 +70,15 @@ require get_template_directory() . '/includes/weather-widget.php';
 function news_content($atts)
 {
     ob_start();
-    $atts = shortcode_atts(['category' => "general", 'language' => "en", 'endpoint' => 'top-headlines'], $atts);
+    $atts = shortcode_atts(['category' => 'general', 'language' => 'en', 'endpoint' => 'top-headlines'], $atts);
 
     require get_template_directory() . '/includes/gnews-ui.php';
 
     return ob_get_clean();
 }
 
-
 function setSMTP($phpmailer)
 {
-
     $phpmailer->isSMTP();
 
     $phpmailer->Host = 'smtp.gmail.com';
@@ -98,10 +93,9 @@ function setSMTP($phpmailer)
     $phpmailer->FromName = 'WordPress News';
 }
 
-
 function auth()
 {
-    require get_template_directory() . "/includes/auth.php";
+    require get_template_directory() . '/includes/auth.php';
 }
 
 add_action('wp_enqueue_scripts', 'style_and_script');
@@ -116,7 +110,6 @@ add_shortcode('news_content', 'news_content');
 add_action('phpmailer_init', 'setSMTP');
 // add_action('show_admin_bar', '__return_false');
 add_action('show_admin_bar', function ($show) {
-
     // Keep admin bar for administrators
     if (current_user_can('manage_options')) {
         return true;
